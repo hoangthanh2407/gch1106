@@ -1,0 +1,39 @@
+{{!-- table.table-primary.text-center.bg-light.mt-3.mb-3>tr*3>th*8 --}}
+<table class="table table-primary text-center bg-light mt-3 mb-3">
+   <tr>
+      <th class="h1 text text-danger" colspan="6">Toy Store ({{ total }})</th>
+      <th>
+         <a class="btn btn-success" href="/add">Add</a>
+         <a class="btn btn-danger" href="/drop"
+         onclick="return confirm('Are you sure to delete all toys ?');"
+         >Drop</a>
+      </th>
+   </tr>
+   <tr>
+      <th>Name</th>
+      <th>Brand</th>
+      <th>Quantity</th>
+     <th>Price</th>
+           <th>Picture</th>
+           <th>date</th>
+            <th>Action</th>
+   </tr>
+   {{#each toys }}
+   <tr>
+      <th>{{ name }}</th>
+      <th>{{ brand }}</th>
+      <th>{{ quantity }}</th>
+      <th>${{ price }}</th>
+            <th>
+         <img class="zoom" src="{{ image }}">
+      </th>
+      <th>{{ date }}</th>
+      <th>
+         <a class="btn btn-warning" href="/edit/{{_id}}">Edit</a>
+         <a class="btn btn-danger" href="/delete/{{_id}}" 
+         onclick="return confirm('Are you sure to delete this toy ?');"
+         >Delete</a>
+      </th>
+   </tr>
+   {{/each}}
+</table>
